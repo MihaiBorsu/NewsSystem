@@ -26,4 +26,8 @@ public class ArticleNew{
     public Dispatcher getDispatcher(){
         return this.dispatcher;
     }
+
+    public void sendEvent(String eventType) {
+        this.dispatcher.sendEvent(eventType, this);
+    }
 }

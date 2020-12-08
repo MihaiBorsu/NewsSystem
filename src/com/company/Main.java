@@ -7,7 +7,8 @@ public class Main {
 	ArticleNew article = editor.createArticle("Test1");
 	Reader reader = new Reader("Fernando");
 	article.getDispatcher().subscribe(reader);
-	editor.ModifyArticle("Test1","Shawarma");
-	editor.DeleteArticle("Shawarma");
+//	article.sendEvent("modify");
+	editor.modifyArticle("Test1","Shawarma");
+//	editor.deleteArticle("Test1");
     }
 }

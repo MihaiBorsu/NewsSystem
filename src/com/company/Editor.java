@@ -17,22 +17,24 @@ public class Editor implements Observer{
         return article;
     }
 
-    public void ModifyArticle(String title, String newTitle){
+
+
+    public void modifyArticle(String title, String newTitle){
         for(ArticleNew article: myNews){
             if(article.getTitle().equals(title)){
-                article.setTitle(newTitle);
+                article.sendEvent("modify");
             }
         }
     }
 
-    public void DeleteArticle(String title){
-        ArticleNew a = null;
-        for(ArticleNew article: myNews){
-            if(article.getTitle().equals(title)){
-                article.getDispatcher().notifyAllReaders("Titlul a fost sters");
-                a = article;
-            }
-        }
-        myNews.remove(a);
-    }
+//    public void deleteArticle(String title){
+//        ArticleNew a = null;
+//        for(ArticleNew article: myNews){
+//            if(article.getTitle().equals(title)){
+//                article.getDispatcher().notifyAllReaders("Titlul a fost sters");
+//                a = article;
+//            }
+//        }
+//        myNews.remove(a);
+//    }
 }

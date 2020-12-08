@@ -40,9 +40,17 @@ public class Dispatcher {
 
     }
 
-    public void sendEvent(String eventType){
+    public void sendEvent(String eventType, ArticleNew article){
         if (eventType.equals("modify")) {
-
+            article.setTitle("modifyiedTitle");
+            this.notifyAllReaders("titlus a fost modificat");
+        }
+        else if (eventType.equals("delete")) {
+            this.notifyAllReaders(article.getTitle() + "articolul a fost sters");
+            article = null;
+        }
+        else if (eventType.equals("read")) {
+            this.notifyAllReaders("articolul a fost modificat");
         }
     }
 
