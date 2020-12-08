@@ -6,9 +6,13 @@ public class Main {
 	Editor editor = new Editor();
 	ArticleNew article = editor.createArticle("Test1");
 	Reader reader = new Reader("Fernando");
+
+//	article.getDispatcher().subscribe(editor);
 	article.getDispatcher().subscribe(reader);
+
 //	article.sendEvent("modify");
 	editor.modifyArticle("Test1","Shawarma");
-//	editor.deleteArticle("Test1");
+	editor.deleteArticle("Test1");
+	editor.modifyArticle("Test1","Shawarma");
     }
 }

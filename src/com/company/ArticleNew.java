@@ -19,7 +19,7 @@ public class ArticleNew{
 
     public void setTitle(String title){
         this.title = title;
-        dispatcher.notifyAllReaders("Titlul a fost modificat");
+        dispatcher.notifyAll("Titlul a fost modificat",true);
 
     }
 
