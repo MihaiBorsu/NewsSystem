@@ -6,7 +6,8 @@ public class Main {
 	Editor editor = new Editor();
 	ArticleNew article = editor.createArticle("Test1");
 	Reader reader = new Reader("Fernando");
-	article.subscribe(reader);
+	article.getDispatcher().subscribe(reader);
 	editor.ModifyArticle("Test1","Shawarma");
+	editor.DeleteArticle("Shawarma");
     }
 }

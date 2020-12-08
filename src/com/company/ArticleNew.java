@@ -2,13 +2,15 @@ package com.company;
 
 import java.util.ArrayList;
 
-public class ArticleNew implements Subject{
+public class ArticleNew{
     private String title;
     private ArrayList<Observer> editorSubscribers = new ArrayList<>();
     private ArrayList<Observer> readerSubscribers = new ArrayList<>();
+    private Dispatcher dispatcher;
 
     public ArticleNew(String title){
         this.title = title;
+        this.dispatcher = new Dispatcher();
     }
 
     public String getTitle(){
@@ -17,39 +19,11 @@ public class ArticleNew implements Subject{
 
     public void setTitle(String title){
         this.title = title;
+        dispatcher.notifyAllReaders("Titlul a fost modificat");
+
     }
 
-    @Override
-    public void subscribe(Observer observer) {
-        if(observer instanceof Editor){
-            editorSubscribers.add(observer);
-        }else{
-            readerSubscribers.add(observer);
-        }
-    }
-
-    @Override
-    public void unsubscribe(Observer observer) {
-        if(observer instanceof Editor){
-            editorSubscribers.remove(observer);
-        }else{
-            readerSubscribers.remove(observer);
-        }
-    }
-
-    @Override
-    public void notify_all_readers() {
-        if (readerSubscribers != null){
-            for(Observer o: readerSubscribers){
-                o.update("stirea: " + title);
-            }
-        }
-    }
-
-    @Override
-    public void notify_all_editors() {
-        for(Observer o: editorSubscribers){
-            o.update("stire");
-        }
+    public Dispatcher getDispatcher(){
+        return this.dispatcher;
     }
 }

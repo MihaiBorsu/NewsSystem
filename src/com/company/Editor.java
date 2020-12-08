@@ -21,17 +21,18 @@ public class Editor implements Observer{
         for(ArticleNew article: myNews){
             if(article.getTitle().equals(title)){
                 article.setTitle(newTitle);
-                article.notify_all_readers();
             }
         }
     }
 
     public void DeleteArticle(String title){
+        ArticleNew a = null;
         for(ArticleNew article: myNews){
             if(article.getTitle().equals(title)){
-                myNews.remove(article);
-                article.notify_all_readers();
+                article.getDispatcher().notifyAllReaders("Titlul a fost sters");
+                a = article;
             }
         }
+        myNews.remove(a);
     }
 }
